@@ -25,6 +25,4 @@ func main() {
 	if err != nil {
 		fmt.Printf("%v is not bribable.\n", c.Name)
 	}
-
-	fmt.Printf("%v is worth %v", c.Name, c.AccountBalance)
 }

@@ -13,4 +13,7 @@ func main() {
 	names := make(chan string)
 	go Hello(names)
 	names <- "Jim"
+
+	names <- "Joe"
+	fmt.Println("Done")
 }
