@@ -212,7 +212,7 @@
                 </section>
                 <section>
                     <h2>Struct Embedding <span style="font-size: 50%;">statt Vererbung</span></h2>
-                    <pre><code data-trim data-noescape data-line-numbers="1-3|5-10" class="go">
+                    <pre><code data-trim data-noescape data-line-numbers="1-3|5-10|12-15" class="go">
                         type Congressman struct {
                           Name string
                         }
@@ -222,6 +222,11 @@
                           Congressman
 
                           NuclearWeaponCode string
+                        }
+                          
+                        func main() {
+                          p := President{Name: "Frank Underwood"}
+                          p.swearOathOfOffice();
                         }
                     </code></pre>
 

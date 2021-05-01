@@ -91,6 +91,10 @@ module.exports = class {
 
   get command() {
     let command = `${this.bin} ${this.src}`
+    if (this.bin === 'go') {
+        command = `${this.bin} run ${this.src}`
+    }
+
     if (this.args) command = `${command} ${this.args}`;
     return command;
   }
