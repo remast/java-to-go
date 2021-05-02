@@ -2,7 +2,7 @@
 
 ## Slides
 
-![alt text][talk_teaser.gif]
+![alt text](./talk_teaser.gif)
 
 Die Slides zum Vortrag "Java to Go" kannst Du mit Beispielen lokal ausführen mit:
 
