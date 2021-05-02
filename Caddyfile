@@ -1,4 +1,0 @@
-localhost {
-    encode gzip
-    file_server browse
-}
