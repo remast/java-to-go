@@ -6,13 +6,13 @@ type Congressman struct {
 	Name string
 }
 
-func (c *Congressman) greet() {
-	fmt.Println("Hello!")
+func (c Congressman) greet() {
+	fmt.Println("Hello", c.Name)
 }
 
 type Enemy struct{}
 
-func (e *Enemy) greet() {
+func (e Enemy) greet() {
 	fmt.Println("Go to hell!")
 }
 
@@ -26,7 +26,7 @@ func passBy(c1 Greeter, c2 Greeter) {
 }
 
 func main() {
-	c := &Congressman{Name: "Frank U."}
-	e := &Enemy{}
+	c := Congressman{Name: "Frank U."}
+	e := Enemy{}
 	passBy(c, e)
 }
