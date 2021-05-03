@@ -214,22 +214,22 @@
                 <section>
                     <h1>Lieben oder Hassen</h1>
                 </section>
-                <section>
+                <section data-run-in-terminal="02_struct_embed\congressman.go" data-run-in-terminal-bin="go">
                     <h2>Struct Embedding <span style="font-size: 50%;">statt Vererbung</span></h2>
-                    <pre style="font-size: .52em;"><code data-trim data-noescape data-line-numbers="1-3|5-10|12-15" class="go">
+                    <pre style="font-size: .52em;"><code data-trim data-noescape data-line-numbers="1-3|5-10|12-14" class="go">
                         type Congressman struct {
                           Name string
                         }
 
                         type President struct {
-                          // Embedded
-                          Congressman
+                          Congressman  // Embedded
 
                           NuclearWeaponCode string
                         }
                           
                         func main() {
-                          p := President{Name: "Frank Underwood"}
+                          p := President{NuclearWeaponCode: "123"}
+                          p.Name = "Frank Underwood"
                           p.swearOathOfOffice();
                         }
                     </code></pre>
