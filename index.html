@@ -449,11 +449,25 @@
                 <section>
                     <h2>Standardbibliothek</h2>
                     <ul>
-                        <li class="fragment">Testing</li>
+                        <li class="fragment">Tests</li>
                         <li class="fragment">HTTP(2) Server und Router</li>
                         <li class="fragment">JSON</li>
                         <li class="fragment">Logging</li>
                     </ul>
+                </section>
+                <section>
+                    <h2>Tests <span style="font-size: 50%; text-transform: none;">hellogopher_test.go</span></h2>
+                    <pre><code data-trim data-noescape class="go">
+                        package main
+    
+                        import "testing"
+                        
+                        func TestSayHelloGopher(t *testing.T) {
+                            if HelloGopher() != "Hello Gopher!" {
+                                t.Error("Unerwartetes Ergebnis.")
+                            }
+                        }
+                    </code></pre>
                 </section>
             </section>
             <section>
@@ -484,6 +498,8 @@
                             </ul>
                         </div>
                     </div>
+                </section>
+                <section data-background-image="https://github.com/ashleymcnamara/gophers/blob/master/Go_Diversity.png?raw=true" data-background-size="40%">
                 </section>
                 <section>
                     <div class="grid grid-cols-2 gap-1 text-left">
@@ -520,8 +536,6 @@
                             </div>
 
                         </div>
-                </section>
-                <section data-background-image="https://github.com/ashleymcnamara/gophers/blob/master/Go_Diversity.png?raw=true" data-background-size="40%">
                 </section>
             </section>
 
