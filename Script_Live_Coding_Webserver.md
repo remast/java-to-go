@@ -1,10 +1,46 @@
 # Go Webserver Live Coding 
 
+## Schritt 0: Initiales Setup
+
+### a) Go Modul initialisieren
 ```
 go mod init java-to-go
 ```
 
+### b) Datei `main.go` erstellen
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Hello Congressman!")
+}
+```
+
+
 ## Schritt 1
+
+### `main.go`
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello Congressman!")
+	})
+	http.ListenAndServe(":8090", nil)
+}
+```
+
+## Schritt 2
 
 ### `main.go`
 ```go
