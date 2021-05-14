@@ -38,7 +38,7 @@
  .reveal-viewport {
    background: #00414b;
    background-color: #00414b; 
-   background-image: url(./themes/logo.jpg);
+   background-image: url(./logo.jpg);
    background-repeat: no-repeat;
    background-position:  calc(100% - 15px) calc(0% + 15px);
    background-size: 72px;
@@ -332,7 +332,7 @@
     .slide-background {
       background-color: #00414b !important;
       -webkit-print-color-adjust: exact; 
-      background-image: url(/themes/logo.jpg);
+      background-image: url(./logo.jpg);
       background-repeat: no-repeat;
       background-position:  calc(100% - 15px) calc(0% + 15px);
       background-size: 72px;
