@@ -327,41 +327,6 @@
                         </div>
                     </div>
                 </section>
-                <!--
-                <section>
-                    <h2>Nebenläufigkeit in Go</h2>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <h3>Goroutinen</h3>
-                            <ul>
-                                <li>
-                                    leichtgewichtiger Thread
-                                </li>
-                                <li>
-                                    innerhalb einer Goroutine läuft Code sequentiell ab
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="fragment">
-                            <h3>Channels</h3>
-                            <ul>
-                                <li>
-                                    Kanal für Nachrichten (mit Puffer)
-                                </li>
-                                <li>
-                                    Kommunikation in eine oder beide Richtungen
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="fragment col-span-2">
-                            Don't communicate by sharing memory, share memory by communicating.
-                            Rob Pike
-                            Theorie dahinter: Communicating Sequential Processes
-                        </div>
-                    </div>
-                </section>
-                -->
-
                 <section data-run-in-terminal="06_goroutine\congressman.go" data-run-in-terminal-bin="go">
                     <h2>Goroutine</h2>
                     <pre><code data-trim data-noescape class="go" data-line-numbers="4-7">
@@ -475,8 +440,6 @@
                 <section>
                     <h2>Tests <span style="font-size: 50%; text-transform: none;">hellogopher_test.go</span></h2>
                     <pre><code data-trim data-noescape class="go">
-                        package main
-    
                         import "testing"
                         
                         func TestSayHelloGopher(t *testing.T) {
@@ -555,39 +518,7 @@
                         </div>
                 </section>
             </section>
-
             <!--
-    
-                https://images.unsplash.com/photo-1608056069613-5629ee466519?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1340&q=80
-            <section>
-                <section>
-                    <h2 class="r-fit-text">Die Cloud liebt Go.</h2>
-                </section>
-                <section
-                    data-background-size="30%"
-                    data-background-image="https://github.com/ashleymcnamara/gophers/raw/master/Kubernetes_Gophers.png">
-                </section>
-                <section
-                    data-background-size="60%"
-                    data-background-image="https://github.com/ashleymcnamara/gophers/raw/master/cncf.png">                        
-                </section>
-            </section>
-            <section>
-                <h2>Go funcy</h2>
-                <pre><code data-trim data-noescape class="go">
-                    package main
-
-                    import "fmt"
-                    
-                    func HelloGopher() string {
-                      fmt.Println("Hello Gopher!")
-                    }
-                    
-                    func main() {
-                      HelloGopher()
-                    }
-                </code></pre>
-            </section>
             <section>
                 <section>
                     <h1>Referenzen und Pointer</h1>
@@ -637,118 +568,15 @@
                 </section>
             </section>
             <section>
-                <section>
-                    <h2>Interfaces</h2>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <span style="font-size: 80%;"></span>
-                            <ul>
-                                <li>enthalten Methodensignaturen</li>
-                                <li>
-                                    werden implizit implementiert
-                                </li>
-                                <li>
-                                    implementiert ein Typ alle Methoden des Interfaces, so implementiert er das
-                                    Interface
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <span style="font-size: 80%;"></span>
-                            <pre style="font-size: 0.44em;"><code data-trim data-noescape class="go">
-                            type Greeter interface {
-                              greet()   
-                            }
-        
-                            func passBy(c1 Greeter, c2 Greeter) {
-                              c1.greet()
-                              c2.greet()  
-                            }
-                            
-                            func main() {
-                              c := &Congressman{Name: "Frank U."}
-                              s := &Enemy{}
-                              passBy(c, s)
-                            }
-                        </code></pre>
-                        </div>
-                    </div>
-                </section>
-            </section>
-            <section>
-                <section>
-                    <h2>Fehler</h2>
-                    <div class="grid grid-cols-3 gap-1">
-                        <div class="col-span-2">
-                            <pre style="font-size: 0.48em;"><code data-trim data-noescape class="go">
-                                func (c Congressman) bribe(amount float64) error {
-                                  if c.Name != "Peter Russo" {
-                                      return errors.New("Not corrupt!")
-                                  }
-                                  c.AccountBalance += amount
-                                  return nil
-                                }
-    
-                                func main() {
-                                  c := Congressman{Name: "Jackie Sharp", AccountBalance: -10.0}
-                                  err := c.bribe(5000.0)
-                                
-                                  if err != nil {
-                                      fmt.Printf("%v is not bribable.\n", c.Name)
-                                  }
-                                
-                                  fmt.Printf("%v is worth %v", c.Name, c.AccountBalance)
-                                }
-                            </code></pre>
-                        </div>
-                        <div>
-                            <ul>
-                                <li>Go kennt kein spezielles Konstrukt zur Fehlerbehandlung</li>
-                                <li>Fehler sind normale Rückgabewerte</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-            </section>
-
-            <section>
-                <h2>Testen</h2>
-                <pre><code data-trim data-noescape class="go">
-                    package main
-
-                    import "testing"
-                    
-                    func TestSayHelloGopher(t *testing.T) {
-                        if HelloGopher() != "Hello Gopher!" {
-                            t.Error("Unerwartetes Ergebnis.")
-                        }
-                    }
-                </code></pre>
-            </section>
-            <section>
                 <h2>Slide 1</h2>
                 <pre>
 						<code class="language-plantuml">
 						</code>
 						</pre>
             </section>
-            <section>
-                Slide 2
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="font-sans md:font-serif">test </div>
-                    <div class="bg-gray-300">test </div>
-                </div>
-            </section>
             <section data-background-iframe="https://play.golang.org/p/P7bm9LMZgXu" data-background-interactive>
                 <h2>Iframe</h2>
             </section>
-            <section data-run-in-terminal="code/example.js" data-run-in-terminal-bin="node">
-                <h2>Here Is A Great Example</h2>
-            </section>
-            <section data-run-in-terminal="hellogopher.go" data-run-in-terminal-bin="go">
-                <h2>Here Is A Great Example</h2>
-            </section>
-
             <section data-run-in-terminal="hellogopher.go" data-run-in-terminal-bin="go">
                 <pre><code data-trim data-noescape>
                     package main
@@ -759,19 +587,6 @@
                         fmt.Println("Hello Gopher!")
                     }
                 </code></pre>
-            </section>
-
-
-            <section>
-                <pre><code data-trim data-noescape data-line-numbers="1">
-package main
-
-import "fmt"
-
-func main() {
-	fmt.Println("Hello Gopher!")
-}
-                 </code></pre>
             </section>
         -->
 
@@ -798,23 +613,9 @@ func main() {
                 },
             ],
             hash: true,
-
-            // Learn about plugins: https://revealjs.com/plugins/
             plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom]
         });
     </script>
-    <!--
-    <script>
-        Reveal.addEventListener('slidechanged', function (event) {
-            let theme = event.currentSlide.getAttribute("data-theme");
-            if (!theme) {
-                return;
-            }
-            console.error(event);
-            document.getElementById('theme').setAttribute('href', theme);
-        });
-    </script>
-    -->
 
 </body>
 
