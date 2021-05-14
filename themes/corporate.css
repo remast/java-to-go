@@ -38,7 +38,7 @@
  .reveal-viewport {
    background: #00414b;
    background-color: #00414b; 
-   background-image: url(/themes/logo.jpg);
+   background-image: url(./themes/logo.jpg);
    background-repeat: no-repeat;
    background-position:  calc(100% - 15px) calc(0% + 15px);
    background-size: 72px;
