@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"sync"
+	"time"
 )
 
 func HelloCongressman(name string) {
@@ -10,11 +10,7 @@ func HelloCongressman(name string) {
 }
 
 func main() {
-	var wg sync.WaitGroup
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-		HelloCongressman("Russo")
-	}()
-	wg.Wait()
+	HelloCongressman("Russo")
+
+	time.Sleep(5 * time.Millisecond)
 }

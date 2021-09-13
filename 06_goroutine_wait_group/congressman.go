@@ -5,8 +5,8 @@ import (
 	"sync"
 )
 
-func HelloGopher() {
-	fmt.Println("Hello Gopher!")
+func HelloCongressman(name string) {
+	fmt.Println("Hello Congressman", name)
 }
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
-		HelloGopher()
+		HelloCongressman("Russo")
 	}()
 	wg.Wait()
 }

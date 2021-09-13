@@ -50,9 +50,9 @@
                     </div>
                     <div></div>
                 </div>
-                <h1>300.000 <span style="font-size: 50%;">Zeilen Code</span></h2>
-                    <h1>776 <span style="font-size: 50%;">Contributors</span></h2>
-                </section>
+                <h1>467.882 <span style="font-size: 50%;">Zeilen Code</span></h1>
+                <h1>2.130 <span style="font-size: 50%;">Contributors</span></h1>
+               </section>
                <section>
                 <img src="./themes/Go-Logo_White.png" width="60%" style="margin: auto;" class="fragment" />
                </section>
@@ -345,13 +345,15 @@
                 </section>
                 <section data-run-in-terminal="06_goroutine\congressman.go" data-run-in-terminal-bin="go">
                     <h2>Goroutine</h2>
-                    <pre><code data-trim data-noescape class="go" data-line-numbers="4-7">
+                    <pre><code data-trim data-noescape class="go" data-line-numbers="4-7|4-8">
                         func HelloCongressman(name string) {
                           fmt.Println("Hello Congressman", name)
                         }
                     
                         func main() {
                           go HelloCongressman("Russo")
+
+                          time.Sleep(5 * time.Millisecond)
                         }
                     </code></pre>
                     <aside class="notes">
@@ -361,10 +363,27 @@
                         </ul>
                     </aside>
                 </section>
-                <!--
-                <section data-run-in-terminal="06_goroutine\congressman.go" data-run-in-terminal-bin="go">
+                <section data-run-in-terminal="06_goroutine_wait_group\congressman.go" data-run-in-terminal-bin="go">
                     <h2>Goroutine <span style="font-size: 50%;">mit Wait Group</span></h2>
                     <pre><code data-trim data-noescape class="go" data-line-numbers="5-13">
+                        func HelloCongressman() {
+                            fmt.Println("Hello Congressman", name)
+                        }
+                        
+                        func main() {
+                          var waitGroup sync.WaitGroup
+                          waitGroup.Add(1)
+                          go func() {
+                              HelloCongressman("Russo")
+                              waitGroup.Done()
+                          }()
+                          waitGroup.Wait()
+                        }
+                    </code></pre>
+                </section>
+                <section data-run-in-terminal="06_goroutine_wait_group\congressman.go" data-run-in-terminal-bin="go">
+                    <h2>Goroutine <span style="font-size: 50%;">mit Wait Group und Defer</span></h2>
+                    <pre><code data-trim data-noescape class="go" data-line-numbers="9-10">
                         func HelloCongressman() {
                             fmt.Println("Hello Congressman", name)
                         }
@@ -380,10 +399,9 @@
                         }
                     </code></pre>
                 </section>
-                -->
                 <section data-run-in-terminal="07_channel\congressman.go" data-run-in-terminal-bin="go">
                     <h2>Channel</h2>
-                    <pre><code data-trim data-noescape class="go" data-line-numbers="2-3|5-6|9-14">                        
+                    <pre style="font-size: 0.5em; overflow: hidden;"><code data-trim data-noescape class="go" data-line-numbers="2-3|5-6|9-14">                        
                         func main() {
                           money := make(chan int)
                           go Congressman(money)
@@ -402,7 +420,7 @@
                 </section>
                 <section data-run-in-terminal="08_channel_select\congressman.go" data-run-in-terminal-bin="go">
                     <h2>Channel <span style="font-size: 50%;">mit Select</span></h2>
-                    <pre><code data-trim data-noescape class="go" data-line-numbers="9-14">
+                    <pre style="font-size: 0.5em; overflow: hidden;"><code data-trim data-noescape class="go" data-line-numbers="9-14">
                         func main() {
                           money := make(chan int)
                           go Congressman(money)
