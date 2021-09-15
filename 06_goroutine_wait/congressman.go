@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 func HelloCongressman(name string) {
@@ -10,4 +11,6 @@ func HelloCongressman(name string) {
 
 func main() {
 	HelloCongressman("Russo")
+
+	time.Sleep(5 * time.Millisecond)
 }

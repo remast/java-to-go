@@ -51,14 +51,13 @@
                 <img src="./themes/Go-Logo_White.png" width="60%" style="margin: auto;" />
                </section>
                <section>
-                   <h1 style="text-transform: none;">Go ist ...</h1>
+                <h2 style="font-size: 170%;">3 Gründe für Go</h2>
                 <ol style="font-size: 130%;">
                     <li class="fragment">Einfach</li>
                     <li class="fragment">Mächtig</li>
                     <li class="fragment">Langweilig</li>
                 </ol>
-
-                </section>
+               </section>
        </section>
            </section>
             <section>
@@ -348,6 +347,24 @@
                 </section>
                 <section data-run-in-terminal="06_goroutine\congressman.go" data-run-in-terminal-bin="go">
                     <h2>Goroutine</h2>
+                    <pre><code data-trim data-noescape class="go" data-line-numbers="4-7">
+                        func HelloCongressman(name string) {
+                          fmt.Println("Hello Congressman", name)
+                        }
+                    
+                        func main() {
+                          go HelloCongressman("Russo")
+                        }
+                    </code></pre>
+                    <aside class="notes">
+                        <ul>
+                            <li>Schlüsselwort go startet eine Goroutine</li>
+                            <li>verhält sich wie & bei Shell Kommando</li>
+                        </ul>
+                    </aside>
+                </section>
+                <section data-run-in-terminal="06_goroutine_wait\congressman.go" data-run-in-terminal-bin="go">
+                    <h2>Goroutine <span style="font-size: 50%;">mit Sleep</span></h2>
                     <pre><code data-trim data-noescape class="go" data-line-numbers="4-7|4-8">
                         func HelloCongressman(name string) {
                           fmt.Println("Hello Congressman", name)
