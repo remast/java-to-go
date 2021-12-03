@@ -322,7 +322,7 @@
                         </div>
                         <div>                            
                             <div class="box-content rounded p-6 border-4 transform -rotate-12" style="background-color: #0072CE;">
-                                Generics kommen in Go 2
+                                Kommen in Go 1.18 im Februar 2022!
                             </div>
                         </div>
                     </div>
@@ -456,22 +456,22 @@
                     </aside>
                 </section>
                 <section>
-                    <h2 style="margin-bottom: 5px;">Debatte <span style="font-size: 50%;">mit Gouroutinen und Channels</span></h2>
-                    <pre style="font-size: 0.45em; margin: 0; width: 100%; line-height: 1;"><code data-trim data-noescape class="go" data-line-numbers="2-3|5-6|9-14">                        
+                    <h2 style="margin-bottom: 5px;">Debatte <span style="font-size: 50%;">mit Goroutinen und Channels</span></h2>
+                    <pre style="font-size: 0.45em; margin: 0; width: 100%; line-height: 1;"><code data-trim data-noescape class="go" data-line-numbers="14|14-17|14-22|1-11,14-22">                        
                         func speaker(name string, debate chan int) {
                           for {
-                            microphone := <-debate // Auf Mikro warten
+                            microphone := <-debate // Auf Mikro warten (Nachricht empfangen)
                         
                             fmt.Printf("Turn %v: %v says '%v'\n", microphone, name, randomAnswer())
                             time.Sleep(400 * time.Millisecond)
                         
                             microphone++
-                            debate <- microphone // Mikro zurückgeben
+                            debate <- microphone // Mikro zurückgeben (Nachricht senden)
                           }
                         }
                         
                         func main() {
-                          debate := make(chan int)
+                          debate := make(chan int) // Channel deklarieren und initialisieren
                         
                           go speaker("Jackie", debate)
                           go speaker("Frank", debate)
@@ -481,6 +481,18 @@
                           time.Sleep(2 * time.Second) // Dauer der Diskussion
                           <-debate                    // Mikro nehmen und Diskussion beenden
                         }
+                    </code></pre>
+                </section>
+                <section>
+                    <h2 style="margin-bottom: 5px;">Debatte <span style="font-size: 50%;">mit Goroutinen und Channels</span></h2>
+                    <pre style="font-size: 0.45em; margin: 0; width: 100%; line-height: 1;"><code data-trim data-noescape>                        
+                        >_ go run debate.go
+                        Turn 1: Frank says 'You liar.'
+                        Turn 2: Jackie says 'Back off.'
+                        Turn 3: Frank says 'Back off.'
+                        Turn 4: Jackie says 'My point.'
+                        Turn 5: Frank says 'You liar.'
+                        Turn 6: Jackie says 'You're wrong.'
                     </code></pre>
                 </section>
                 <!--
@@ -613,29 +625,33 @@
                     <h2>Demo</h2>
                 </section>
                 <section >
-                    <h2>Go</h2>
-                    <ul>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
+                    <h2>Go Liebt</h2>
+                    <div class="grid grid-cols-2 gap-10 text-left">
+                        <div class="fragment">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
                                 <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5 8.186 1.113zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
                               </svg>
-                             Microservices</li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-braces" viewBox="0 0 16 16">
+                             Microservices
+                        </div>
+                        <div class="fragment">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-braces" viewBox="0 0 16 16">
                                 <path d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z"/>
                               </svg>
-                            Serverless Functions</li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-terminal-fill" viewBox="0 0 16 16">
+                            Serverless Functions
+                        </div>
+                        <div class="fragment">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-terminal-fill" viewBox="0 0 16 16">
                                 <path d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3zm9.5 5.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1zm-6.354-.354a.5.5 0 1 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2a.5.5 0 1 0-.708.708L4.793 6.5 3.146 8.146z"/>
                               </svg>
-                            Utilities und (Kommandozeilen-)Tools</li>
-                        <li>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                            Kommandozeilen-Tools
+                        </div>
+                        <div class="fragment">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
                                 <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
                               </svg>
-                            DevOps und SRE</li>
-                    </ul>
+                            DevOps und Cloud
+                        </div>
+                    </div>
                 </section>
             </section>
             <section>
